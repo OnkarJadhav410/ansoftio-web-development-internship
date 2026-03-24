@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f4f4f4;
+    }
+    .calculator {
+      display: inline-block;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    button {
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Simple Calculator</h2>
+
+    <label>Number 1:</label>
+    <input type="number" id="num1" placeholder="Enter first number" /><br />
+
+    <label>Number 2:</label>
+    <input type="number" id="num2" placeholder="Enter second number" /><br />
+
+    <button onclick="add()">Add</button>
+    <button onclick="subtract()">Subtract</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+
+    <div class="result" id="result">Result will appear here</div>
+  </div>
+
+  <script>
+    function getValues() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        return { valid: false, msg: "Please enter valid numbers." };
+      }
+
+      return { valid: true, num1, num2 };
+    }
+
+    function setResult(text) {
+      document.getElementById("result").innerText = text;
+    }
+
+    function add() {
+      const vals = getValues();
+      if (!vals.valid) return setResult(vals.msg);
+
+      setResult(`${vals.num1} + ${vals.num2} = ${vals.num1 + vals.num2}`);
+    }
+
+    function subtract() {
+      const vals = getValues();
+      if (!vals.valid) return setResult(vals.msg);
+
+      setResult(`${vals.num1} - ${vals.num2} = ${vals.num1 - vals.num2}`);
+    }
+
+    function multiply() {
+      const vals = getValues();
+      if (!vals.valid) return setResult(vals.msg);
+
+      setResult(`${vals.num1} × ${vals.num2} = ${vals.num1 * vals.num2}`);
+    }
+
+    function divide() {
+      const vals = getValues();
+      if (!vals.valid) return setResult(vals.msg);
+
+      if (vals.num2 === 0) {
+        return setResult("Error: Division by zero is not allowed.");
+      }
+
+      setResult(`${vals.num1} ÷ ${vals.num2} = ${vals.num1 / vals.num2}`);
+    }
+  </script>
+</body>
+</html>
