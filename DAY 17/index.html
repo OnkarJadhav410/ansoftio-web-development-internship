@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="welcomeHeading">Welcome Student</h1>
+    
+    <div>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <br>
+        <button onclick="updateHeading()">Update Name</button>
+    </div>
+
+    <script>
+        function updateHeading() {
+            const nameInput = document.getElementById('nameInput');
+            const heading = document.getElementById('welcomeHeading');
+            const userName = nameInput.value.trim();
+            
+            if (userName) {
+                heading.textContent = `Welcome ${userName}`;
+            } else {
+                heading.textContent = 'Welcome Student';
+            }
+        }
+    </script>
+</body>
+</html>
