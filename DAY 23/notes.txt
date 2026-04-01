@@ -1,0 +1,52 @@
+Project Name: Portfolio Website
+
+1. Wireframe Overview:
+The wireframe represents a portfolio website with a clean and structured layout. It includes a header, navigation bar, main content sections arranged in a grid format, and a footer.
+
+2. Layout Structure:
+- Header: Displays the title "Portfolio Website" at the top with a gradient background.
+- Navigation Bar: Contains menu options (Home, About, Projects, Contact) for easy navigation.
+- Main Content:
+  - Divided into four sections using a 2x2 grid layout:
+    • Home Section
+    • About Section
+    • Project Section
+    • Contact Section
+- Footer: Placed at the bottom with a gradient background.
+
+3. Sections Description:
+- Home Section: Introduction of the user with name and short description.
+- About Section: Information about skills, education, and experience.
+- Project Section: Displays projects with details and links.
+- Contact Section: Includes contact form and social media links.
+
+4. UI Design Planning:
+
+Colors:
+- Header: Blue to Purple gradient
+- Navigation Bar: Pink to Orange gradient
+- Main Sections: Light Purple background
+- Footer: Purple to Blue gradient
+
+Fonts:
+- Font Family: Sans-serif (simple and readable)
+- Headings: Bold and uppercase
+- Content: Normal weight for readability
+
+Layout Style:
+- Grid-based layout (2x2 structure)
+- Symmetrical and balanced design
+- Clean and minimal interface
+
+5. User Flow:
+User visits the website → Views Header → Uses Navigation Bar → Scrolls through Home → About → Projects → Contact → Ends at Footer.
+
+6. UI/UX Features:
+- Simple and user-friendly design
+- Attractive gradient color scheme
+- Clear section separation
+- Easy navigation
+- Responsive layout concept
+
+7. Conclusion:
+This design provides a modern and visually appealing portfolio layout. It focuses on simplicity, usability, and structured presentation of content, making it suitable for showcasing personal and professional information.

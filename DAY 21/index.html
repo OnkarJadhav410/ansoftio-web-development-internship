@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f0f0;
+            text-align: center;
+        }
+        .quiz-container {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .option {
+            display: block;
+            margin: 8px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h2 id="question">Question</h2>
+    <div id="options"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <h3 id="result"></h3>
+</div>
+
+<script>
+    const quizData = [
+        {
+            question: "What is HTML?",
+            options: ["Programming Language", "Markup Language", "Database", "Operating System"],
+            answer: "Markup Language"
+        },
+        {
+            question: "Which tag is used for JavaScript?",
+            options: ["script", "js", "javascript", "code"],
+            answer: "<script>"
+        },
+        {
+            question: "What is CSS used for?",
+            options: ["Structure", "Styling", "Logic", "Database"],
+            answer: "Styling"
+        },
+        {
+            question: "Which is a JavaScript framework?",
+            options: ["React", "HTML", "CSS", "MySQL"],
+            answer: "React"
+        },
+        {
+            question: "Which symbol is used for comments in JS?",
+            options: ["//", "#", "<!-- -->", "**"],
+            answer: "//"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        let q = quizData[currentQuestion];
+        document.getElementById("question").innerText = q.question;
+
+        let optionsHTML = "";
+        q.options.forEach(option => {
+            optionsHTML += `
+                <label class="option">
+                    <input type="radio" name="option" value="${option}">
+                    ${option}
+                </label>
+            `;
+        });
+
+        document.getElementById("options").innerHTML = optionsHTML;
+    }
+
+    function nextQuestion() {
+        let selected = document.querySelector('input[name="option"]:checked');
+
+        if (!selected) {
+            alert("Please select an answer!");
+            return;
+        }
+
+        if (selected.value === quizData[currentQuestion].answer) {
+            score++;
+        }
+
+        currentQuestion++;
+
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            document.querySelector(".quiz-container").innerHTML = `
+                <h2>Quiz Completed!</h2>
+                <h3>Your Score: ${score} / ${quizData.length}</h3>
+            `;
+        }
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>
